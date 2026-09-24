@@ -1,0 +1,22 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      DB_CONNECTION: sqlite
+      DB_DATABASE: /app/database/database.sqlite
+    volumes:
+      - .:/app
+    command: >
+      sh -c "php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=8000"
+
+  # Para usar com PostgreSQL, descomente abaixo e altere .env
+  # db:
+  #   image: postgres:16
+  #   environment:
+  #     POSTGRES_DB: laravel_task
+  #     POSTGRES_USER: laravel
+  #     POSTGRES_PASSWORD: secret
+  #   ports:
+  #     - "5432:5432"

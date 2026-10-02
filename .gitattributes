@@ -9,3 +9,6 @@
 /.github export-ignore
 CHANGELOG.md export-ignore
 .styleci.yml export-ignore
+
+# Templates Blade não contam nas estatísticas de linguagem do GitHub (o repositório é uma API PHP)
+*.blade.php linguist-detectable=false
